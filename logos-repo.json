@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "name": "forumer",
-  "displayName": "Forumer",
-  "description": "Forumer: a private forum with no server, on the Logos stack. Its dependencies (delivery_module, storage_module) come from the official Logos catalog.",
-  "homepage": "https://github.com/bristinWild/forumer",
-  "indexUrl": "https://github.com/bristinWild/forumer-catalog/releases/download/index/index.json",
+  "name": "bristin",
+  "displayName": "Bristin",
+  "description": "Logos modules by Bristin Borah: Forumer, Solizone EVM and SoliCamp",
+  "homepage": "https://github.com/bristinWild/bristin-catalog",
+  "indexUrl": "https://github.com/bristinWild/bristin-catalog/releases/download/index/index.json",
   "trustedSigners": []
 }
