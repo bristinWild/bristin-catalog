@@ -19,3 +19,6 @@
 [submodule "submodules/forumer"]
 	path = submodules/forumer
 	url = https://github.com/bristinWild/forumer
+[submodule "submodules/solicamp"]
+	path = submodules/solicamp
+	url = https://github.com/bristinWild/solicamp
