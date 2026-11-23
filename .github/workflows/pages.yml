@@ -1,0 +1,46 @@
+name: Pages
+
+# Publishes logos-repo.json (and includes.json, if present) at the catalogue's
+# own web address, so clients can use a short URL instead of the raw GitHub one.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - logos-repo.json
+      - includes.json
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage the catalogue files
+        run: |
+          mkdir site
+          cp logos-repo.json site/
+          if [ -f includes.json ]; then cp includes.json site/; fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
